@@ -42,7 +42,6 @@ const LoginPage = () => {
       });
       const data = await response.json();
 
-      console.log('API response:', data);
 
       if (response.ok && data.token) {
         setSuccessMessage(data.message);
@@ -53,7 +52,6 @@ const LoginPage = () => {
           email: data.email,
           token: data.token,
         }));
-        console.log('Updated local storage:', localStorage.getItem('user'));
 
         // Update user state in the context with more details
         setUser({

@@ -39,7 +39,7 @@ const Contact = ({ cardWidth = "w-[480px]" }) => {
               AA
             </div>
             <div className="text-3xl font-semibold text-gray-800 mb-3">
-              Anish A
+              Anish 
             </div>
             <div className="text-gray-700 text-xl mb-5">Full-Stack Development</div>
             <a
