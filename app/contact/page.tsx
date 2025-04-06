@@ -1,4 +1,6 @@
-const Contact = ({ cardWidth = "w-[480px]" }) => {
+export default function ContactPage() {
+  const cardWidth = "w-[480px]";
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 md:px-10 lg:px-24 -mt-4">
       <section>
@@ -9,92 +11,93 @@ const Contact = ({ cardWidth = "w-[480px]" }) => {
             style={{ top: "60px", width: "60%" }}
           ></span>
         </h1>
+
         {/* Contact Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div
-            className={`flex flex-col items-center p-10 bg-white shadow-xl rounded-xl transform ${cardWidth} hover:scale-102 hover:translate-y-[-5px] transition-all duration-200 ease-in-out`}
-          >
-            <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full mb-6 flex justify-center items-center text-white text-4xl font-bold">
-              AD
-            </div>
-            <div className="text-3xl font-semibold text-gray-800 mb-3">
-              Aditya D P
-            </div>
-            <div className="text-gray-700 text-xl mb-5">
-              Machine Learning
-            </div>
-            <a
-              href="mailto:aditya@example.com"
-              className="text-red-500 hover:underline text-lg"
-            >
-              aditya@example.com
-            </a>
-          </div>
+          <ContactCard
+            initials="AD"
+            name="Aditya D P"
+            role="Machine Learning"
+            email="aditya@example.com"
+            gradient="from-red-500 to-yellow-500"
+            cardWidth={cardWidth}
+            color="red"
+          />
 
-          {/* Contact Card 2 - Frontend */}
-          <div
-            className={`flex flex-col items-center p-10 bg-white shadow-xl rounded-xl transform ${cardWidth} hover:scale-102 hover:translate-y-[-5px] transition-all duration-200 ease-in-out`}
-          >
-            <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6 flex justify-center items-center text-white text-4xl font-bold">
-              AA
-            </div>
-            <div className="text-3xl font-semibold text-gray-800 mb-3">
-              Anish 
-            </div>
-            <div className="text-gray-700 text-xl mb-5">Full-Stack Development</div>
-            <a
-              href="mailto:anish@example.com"
-              className="text-blue-500 hover:underline text-lg"
-            >
-              anish@example.com
-            </a>
-          </div>
+          <ContactCard
+            initials="AA"
+            name="Anish"
+            role="Full-Stack Development"
+            email="anish@example.com"
+            gradient="from-blue-500 to-purple-500"
+            cardWidth={cardWidth}
+            color="blue"
+          />
 
-          {/* Contact Card 3 - Email Notification */}
-          <div
-            className={`flex flex-col items-center p-10 bg-white shadow-xl rounded-xl transform ${cardWidth} hover:scale-102 hover:translate-y-[-5px] transition-all duration-200 ease-in-out`}
-          >
-            <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-500 rounded-full mb-6 flex justify-center items-center text-white text-4xl font-bold">
-              KK
-            </div>
-            <div className="text-3xl font-semibold text-gray-800 mb-3">
-              Karthik Khandige
-            </div>
-            <div className="text-gray-700 text-xl mb-5">
-              Email Notifications
-            </div>
-            <a
-              href="mailto:karthik@example.com"
-              className="text-green-500 hover:underline text-lg"
-            >
-              karthik@example.com
-            </a>
-          </div>
+          <ContactCard
+            initials="KK"
+            name="Karthik Khandige"
+            role="Email Notifications"
+            email="karthik@example.com"
+            gradient="from-green-500 to-teal-500"
+            cardWidth={cardWidth}
+            color="green"
+          />
 
-          {/* Contact Card 4 - Web Scraping */}
-          <div
-            className={`flex flex-col items-center p-10 bg-white shadow-xl rounded-xl transform ${cardWidth} hover:scale-102 hover:translate-y-[-5px] transition-all duration-200 ease-in-out`}
-          >
-            <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-red-700 rounded-full mb-6 flex justify-center items-center text-white text-4xl font-bold">
-              KA
-            </div>
-            <div className="text-3xl font-semibold text-gray-800 mb-3">
-              Karthika Krishna
-            </div>
-            <div className="text-gray-700 text-xl mb-5">
-              Web Scraping
-            </div>
-            <a
-              href="mailto:karthika@example.com"
-              className="text-red-500 hover:underline text-lg"
-            >
-              karthika@example.com
-            </a>
-          </div>
+          <ContactCard
+            initials="KA"
+            name="Karthika Krishna"
+            role="Web Scraping"
+            email="karthika@example.com"
+            gradient="from-red-500 to-red-700"
+            cardWidth={cardWidth}
+            color="red"
+          />
         </div>
       </section>
     </div>
   );
+}
+
+type ContactCardProps = {
+  initials: string;
+  name: string;
+  role: string;
+  email: string;
+  gradient: string;
+  cardWidth: string;
+  color: "red" | "blue" | "green";
 };
 
-export default Contact;
+function ContactCard({
+  initials,
+  name,
+  role,
+  email,
+  gradient,
+  cardWidth,
+  color,
+}: ContactCardProps) {
+  const emailColor = {
+    red: "text-red-500",
+    blue: "text-blue-500",
+    green: "text-green-500",
+  }[color];
+
+  return (
+    <div
+      className={`flex flex-col items-center p-10 bg-white shadow-xl rounded-xl transform ${cardWidth} hover:scale-102 hover:translate-y-[-5px] transition-all duration-200 ease-in-out`}
+    >
+      <div
+        className={`w-20 h-20 bg-gradient-to-r ${gradient} rounded-full mb-6 flex justify-center items-center text-white text-4xl font-bold`}
+      >
+        {initials}
+      </div>
+      <div className="text-3xl font-semibold text-gray-800 mb-3">{name}</div>
+      <div className="text-gray-700 text-xl mb-5">{role}</div>
+      <a href={`mailto:${email}`} className={`${emailColor} hover:underline text-lg`}>
+        {email}
+      </a>
+    </div>
+  );
+}

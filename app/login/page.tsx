@@ -121,9 +121,8 @@ const LoginPage = () => {
 
           <button
             type="submit"
-            className={`w-full py-3 bg-red-600 text-white font-semibold rounded-md transition duration-200 transform hover:bg-red-700 focus:ring-4 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed ${
-              isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
+            className={`w-full py-3 bg-red-600 text-white font-semibold rounded-md transition duration-200 transform hover:bg-red-700 focus:ring-4 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Logging in...' : 'Login'}
