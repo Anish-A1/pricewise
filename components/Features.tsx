@@ -36,7 +36,7 @@ const Features = () => {
         {features.map((feature, index) => (
           <div
             key={index}
-            className="flex items-center gap-6 p-4 rounded-lg bg-white shadow-md hover:bg-light-blue-100 transition-all transform hover:scale-105 hover:shadow-lg"
+            className="flex items-center gap-6 p-4 rounded-lg bg-white shadow-md transition-all transform "
           >
             <Image
               src={feature.icon}
